@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.19.0.xsd">
+    <generator>
+        <name>org.jooq.codegen.JavaGenerator</name>
+        <generate>
+            <springAnnotations>true</springAnnotations>
+
+            <javaTimeTypes>true</javaTimeTypes>
+            <javaBeansGettersAndSetters>true</javaBeansGettersAndSetters>
+
+            <serializablePojos>true</serializablePojos>
+            <immutablePojos>true</immutablePojos>
+            <pojos>true</pojos>
+            <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
+            <pojosToString>true</pojosToString>
+            <validationAnnotations>true</validationAnnotations>
+        </generate>
+        <strategy>
+
+        </strategy>
+        <target>
+            <packageName>ru.manannikov.jooqjpa.generated</packageName>
+            <directory>src/main/java/</directory>
+            <clean>true</clean>
+            <encoding>UTF-8</encoding>
+        </target>
+    </generator>
+    <logging>DEBUG</logging>
+    <onError>LOG</onError>
+</configuration>

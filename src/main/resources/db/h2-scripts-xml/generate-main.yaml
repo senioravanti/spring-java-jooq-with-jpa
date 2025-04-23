@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: 'animals/01-create-table.xml'
+  - include:
+      file: 'users/01-create-table.xml'

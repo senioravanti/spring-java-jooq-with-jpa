@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: 'db/mariadb-scripts-xml/animals/01-create-table.xml'
+  - include:
+      file: 'db/mariadb-scripts-xml/animals/02-insert-data.xml'

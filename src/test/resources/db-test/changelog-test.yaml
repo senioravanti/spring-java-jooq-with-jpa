@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: 'db/h2-scripts-xml/animals/01-create-table.xml'
+  - include:
+      file: 'db/h2-scripts-xml/animals/02-insert-data.xml'
+  - include:
+      file: 'db/h2-scripts-xml/users/01-create-table.xml'

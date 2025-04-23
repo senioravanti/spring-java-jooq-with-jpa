@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{DEFAULT} [%t] %-5level %logger %M --- %msg%n" />
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console" />
+    </Root>
+    <Logger name="ru.manannikov.jooq" level="DEBUG"/>
+    <Logger name="org.springframework" level="WARN"/>
+    <Logger name="org.jooq" level="DEBUG"/>
+  </Loggers>
+</Configuration>

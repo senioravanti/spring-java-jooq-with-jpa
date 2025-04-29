@@ -1,39 +1,27 @@
 name: java-jooq-jpa
 
 volumes:
-  java-jooq-jpa-mariadb-data:
+  java-jooq-jpa-postgres-data:
 
 networks:
   java-jooq-jpa-net:
 
 services:
-  mariadb:
-    image: 'mariadb:11.7-noble'
-    container_name: 'java-jooq-jpa-mariadb'
-
-    healthcheck:
-      test: [ "CMD", "healthcheck.sh", "--connect" ]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+  postgres:
+    image: 'postgres:17.4-bookworm'
+    container_name: 'java-jooq-jpa-postgres'
 
     restart: unless-stopped
 
-    env_file:
-      - ./.env
-
     volumes:
-      - 'java-jooq-jpa-mariadb-data:/var/lib/mysq'
+      - 'java-jooq-jpa-postgres-data:/var/lib/postgresql/data'
 
     environment:
-      MARIADB_ROOT_PASSWORD: '${DATABASE_ROOT_PASSWORD}'
-
-      MARIADB_DATABASE: '${DATABASE_NAME}'
-      MARIADB_USER: '${DATABASE_USER}'
-      MARIADB_PASSWORD: '${DATABASE_PASSWORD}'
+      POSTGRES_DB: 'jooq_jpa_db'
+      POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
 
     ports:
-      - '${DATABASE_PORT}:3306'
+      - '${DATABASE_PORT}:5432'
 
     networks:
       java-jooq-jpa-net:

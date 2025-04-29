@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: db/h2-scripts/01-taxonomic-ranks/01-create-table.sql
+  - include:
+      file: db/h2-scripts/01-taxonomic-ranks/02-insert-data.sql
+
+  - include:
+      file: db/h2-scripts/02-animals/01-create-table.sql
+  - include:
+      file: db/h2-scripts/02-animals/02-insert-data.sql

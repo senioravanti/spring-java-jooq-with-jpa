@@ -21,11 +21,7 @@ public class Animals implements Serializable {
     private final Integer animalId;
     private final String animalRussianName;
     private final String animalLatinName;
-    private final String animalClass;
-    private final String animalOrder;
-    private final String animalFamily;
-    private final String animalGenus;
-    private final String animalSpecies;
+    private final Short taxonomicRankId;
     private final String animalNaturalHabitat;
     private final String animalImageUri;
 
@@ -33,11 +29,7 @@ public class Animals implements Serializable {
         this.animalId = value.animalId;
         this.animalRussianName = value.animalRussianName;
         this.animalLatinName = value.animalLatinName;
-        this.animalClass = value.animalClass;
-        this.animalOrder = value.animalOrder;
-        this.animalFamily = value.animalFamily;
-        this.animalGenus = value.animalGenus;
-        this.animalSpecies = value.animalSpecies;
+        this.taxonomicRankId = value.taxonomicRankId;
         this.animalNaturalHabitat = value.animalNaturalHabitat;
         this.animalImageUri = value.animalImageUri;
     }
@@ -46,22 +38,14 @@ public class Animals implements Serializable {
         Integer animalId,
         String animalRussianName,
         String animalLatinName,
-        String animalClass,
-        String animalOrder,
-        String animalFamily,
-        String animalGenus,
-        String animalSpecies,
+        Short taxonomicRankId,
         String animalNaturalHabitat,
         String animalImageUri
     ) {
         this.animalId = animalId;
         this.animalRussianName = animalRussianName;
         this.animalLatinName = animalLatinName;
-        this.animalClass = animalClass;
-        this.animalOrder = animalOrder;
-        this.animalFamily = animalFamily;
-        this.animalGenus = animalGenus;
-        this.animalSpecies = animalSpecies;
+        this.taxonomicRankId = taxonomicRankId;
         this.animalNaturalHabitat = animalNaturalHabitat;
         this.animalImageUri = animalImageUri;
     }
@@ -92,47 +76,11 @@ public class Animals implements Serializable {
     }
 
     /**
-     * Getter for <code>ANIMALS.ANIMAL_CLASS</code>.
+     * Getter for <code>ANIMALS.TAXONOMIC_RANK_ID</code>.
      */
     @NotNull
-    @Size(max = 24)
-    public String getAnimalClass() {
-        return this.animalClass;
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_ORDER</code>.
-     */
-    @NotNull
-    @Size(max = 24)
-    public String getAnimalOrder() {
-        return this.animalOrder;
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_FAMILY</code>.
-     */
-    @NotNull
-    @Size(max = 36)
-    public String getAnimalFamily() {
-        return this.animalFamily;
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_GENUS</code>.
-     */
-    @NotNull
-    @Size(max = 24)
-    public String getAnimalGenus() {
-        return this.animalGenus;
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_SPECIES</code>.
-     */
-    @Size(max = 128)
-    public String getAnimalSpecies() {
-        return this.animalSpecies;
+    public Short getTaxonomicRankId() {
+        return this.taxonomicRankId;
     }
 
     /**
@@ -178,35 +126,11 @@ public class Animals implements Serializable {
         }
         else if (!this.animalLatinName.equals(other.animalLatinName))
             return false;
-        if (this.animalClass == null) {
-            if (other.animalClass != null)
+        if (this.taxonomicRankId == null) {
+            if (other.taxonomicRankId != null)
                 return false;
         }
-        else if (!this.animalClass.equals(other.animalClass))
-            return false;
-        if (this.animalOrder == null) {
-            if (other.animalOrder != null)
-                return false;
-        }
-        else if (!this.animalOrder.equals(other.animalOrder))
-            return false;
-        if (this.animalFamily == null) {
-            if (other.animalFamily != null)
-                return false;
-        }
-        else if (!this.animalFamily.equals(other.animalFamily))
-            return false;
-        if (this.animalGenus == null) {
-            if (other.animalGenus != null)
-                return false;
-        }
-        else if (!this.animalGenus.equals(other.animalGenus))
-            return false;
-        if (this.animalSpecies == null) {
-            if (other.animalSpecies != null)
-                return false;
-        }
-        else if (!this.animalSpecies.equals(other.animalSpecies))
+        else if (!this.taxonomicRankId.equals(other.taxonomicRankId))
             return false;
         if (this.animalNaturalHabitat == null) {
             if (other.animalNaturalHabitat != null)
@@ -230,11 +154,7 @@ public class Animals implements Serializable {
         result = prime * result + ((this.animalId == null) ? 0 : this.animalId.hashCode());
         result = prime * result + ((this.animalRussianName == null) ? 0 : this.animalRussianName.hashCode());
         result = prime * result + ((this.animalLatinName == null) ? 0 : this.animalLatinName.hashCode());
-        result = prime * result + ((this.animalClass == null) ? 0 : this.animalClass.hashCode());
-        result = prime * result + ((this.animalOrder == null) ? 0 : this.animalOrder.hashCode());
-        result = prime * result + ((this.animalFamily == null) ? 0 : this.animalFamily.hashCode());
-        result = prime * result + ((this.animalGenus == null) ? 0 : this.animalGenus.hashCode());
-        result = prime * result + ((this.animalSpecies == null) ? 0 : this.animalSpecies.hashCode());
+        result = prime * result + ((this.taxonomicRankId == null) ? 0 : this.taxonomicRankId.hashCode());
         result = prime * result + ((this.animalNaturalHabitat == null) ? 0 : this.animalNaturalHabitat.hashCode());
         result = prime * result + ((this.animalImageUri == null) ? 0 : this.animalImageUri.hashCode());
         return result;
@@ -247,11 +167,7 @@ public class Animals implements Serializable {
         sb.append(animalId);
         sb.append(", ").append(animalRussianName);
         sb.append(", ").append(animalLatinName);
-        sb.append(", ").append(animalClass);
-        sb.append(", ").append(animalOrder);
-        sb.append(", ").append(animalFamily);
-        sb.append(", ").append(animalGenus);
-        sb.append(", ").append(animalSpecies);
+        sb.append(", ").append(taxonomicRankId);
         sb.append(", ").append(animalNaturalHabitat);
         sb.append(", ").append(animalImageUri);
 

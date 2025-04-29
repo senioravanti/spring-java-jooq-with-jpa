@@ -10,7 +10,6 @@ import org.jooq.Query;
 import org.springframework.stereotype.Repository;
 import ru.manannikov.jooqjpa.daos.AnimalDao;
 import ru.manannikov.jooqjpa.entities.AnimalEntity;
-import ru.manannikov.jooqjpa.pojos.AnimalFilter;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,23 +32,11 @@ public class AnimalDaoImpl
     @Override
     public List<AnimalEntity> findAll(
         int pageNumber, int pageSize,
-        AnimalFilter animalFilter
+        List<Short> ranks
     ) {
         final Condition dynamicFilter = noCondition();
-        if (animalFilter.getAnimalClass() != null) {
-            dynamicFilter.and(ANIMALS.ANIMAL_CLASS.eq(animalFilter.getAnimalClass()));
-        }
-        if (animalFilter.getAnimalOrder() != null) {
-            dynamicFilter.and(ANIMALS.ANIMAL_ORDER.eq(animalFilter.getAnimalOrder()));
-        }
-        if (animalFilter.getAnimalFamily() != null) {
-            dynamicFilter.and(ANIMALS.ANIMAL_FAMILY.eq(animalFilter.getAnimalFamily()));
-        }
-        if (animalFilter.getAnimalGenus() != null) {
-            dynamicFilter.and(ANIMALS.ANIMAL_GENUS.eq(animalFilter.getAnimalGenus()));
-        }
-        if (animalFilter.getAnimalSpecies() != null) {
-            dynamicFilter.and(ANIMALS.ANIMAL_SPECIES.eq(animalFilter.getAnimalSpecies()));
+        if (ranks != null) {
+            ranks.forEach(it -> dynamicFilter.and(ANIMALS.TAXONOMIC_RANK_ID.eq(it)));
         }
 
         final Query query = ctx.selectFrom(ANIMALS)

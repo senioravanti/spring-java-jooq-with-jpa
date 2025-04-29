@@ -12,7 +12,8 @@ import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
 import ru.manannikov.jooqjpa.generated.tables.Animals;
-import ru.manannikov.jooqjpa.generated.tables.Users;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRankTypes;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRanks;
 
 
 /**
@@ -34,9 +35,14 @@ public class DefaultSchema extends SchemaImpl {
     public final Animals ANIMALS = Animals.ANIMALS;
 
     /**
-     * The table <code>USERS</code>.
+     * The table <code>TAXONOMIC_RANK_TYPES</code>.
      */
-    public final Users USERS = Users.USERS;
+    public final TaxonomicRankTypes TAXONOMIC_RANK_TYPES = TaxonomicRankTypes.TAXONOMIC_RANK_TYPES;
+
+    /**
+     * The table <code>TAXONOMIC_RANKS</code>.
+     */
+    public final TaxonomicRanks TAXONOMIC_RANKS = TaxonomicRanks.TAXONOMIC_RANKS;
 
     /**
      * No further instances allowed
@@ -55,7 +61,8 @@ public class DefaultSchema extends SchemaImpl {
     public final List<Table<?>> getTables() {
         return Arrays.asList(
             Animals.ANIMALS,
-            Users.USERS
+            TaxonomicRankTypes.TAXONOMIC_RANK_TYPES,
+            TaxonomicRanks.TAXONOMIC_RANKS
         );
     }
 }

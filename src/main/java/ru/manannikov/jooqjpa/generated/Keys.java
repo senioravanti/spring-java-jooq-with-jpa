@@ -4,15 +4,18 @@
 package ru.manannikov.jooqjpa.generated;
 
 
+import org.jooq.ForeignKey;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
 import ru.manannikov.jooqjpa.generated.tables.Animals;
-import ru.manannikov.jooqjpa.generated.tables.Users;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRankTypes;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRanks;
 import ru.manannikov.jooqjpa.generated.tables.records.AnimalsRecord;
-import ru.manannikov.jooqjpa.generated.tables.records.UsersRecord;
+import ru.manannikov.jooqjpa.generated.tables.records.TaxonomicRankTypesRecord;
+import ru.manannikov.jooqjpa.generated.tables.records.TaxonomicRanksRecord;
 
 
 /**
@@ -26,11 +29,19 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<AnimalsRecord> CONSTRAINT_F = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("CONSTRAINT_F"), new TableField[] { Animals.ANIMALS.ANIMAL_RUSSIAN_NAME }, true);
-    public static final UniqueKey<AnimalsRecord> CONSTRAINT_F7 = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("CONSTRAINT_F7"), new TableField[] { Animals.ANIMALS.ANIMAL_LATIN_NAME }, true);
-    public static final UniqueKey<AnimalsRecord> PK_ANIMALS = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("PK_ANIMALS"), new TableField[] { Animals.ANIMALS.ANIMAL_ID }, true);
-    public static final UniqueKey<UsersRecord> CONSTRAINT_4 = Internal.createUniqueKey(Users.USERS, DSL.name("CONSTRAINT_4"), new TableField[] { Users.USERS.USER_USERNAME }, true);
-    public static final UniqueKey<UsersRecord> CONSTRAINT_4D = Internal.createUniqueKey(Users.USERS, DSL.name("CONSTRAINT_4D"), new TableField[] { Users.USERS.USER_PASSWORD }, true);
-    public static final UniqueKey<UsersRecord> CONSTRAINT_4D4 = Internal.createUniqueKey(Users.USERS, DSL.name("CONSTRAINT_4D4"), new TableField[] { Users.USERS.USER_EMAIL }, true);
-    public static final UniqueKey<UsersRecord> PK_USERS = Internal.createUniqueKey(Users.USERS, DSL.name("PK_USERS"), new TableField[] { Users.USERS.USER_ID }, true);
+    public static final UniqueKey<AnimalsRecord> CONSTRAINT_F = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("CONSTRAINT_F"), new TableField[] { Animals.ANIMALS.ANIMAL_ID }, true);
+    public static final UniqueKey<AnimalsRecord> CONSTRAINT_F7 = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("CONSTRAINT_F7"), new TableField[] { Animals.ANIMALS.ANIMAL_RUSSIAN_NAME }, true);
+    public static final UniqueKey<AnimalsRecord> CONSTRAINT_F7B = Internal.createUniqueKey(Animals.ANIMALS, DSL.name("CONSTRAINT_F7B"), new TableField[] { Animals.ANIMALS.ANIMAL_LATIN_NAME }, true);
+    public static final UniqueKey<TaxonomicRankTypesRecord> CONSTRAINT_E = Internal.createUniqueKey(TaxonomicRankTypes.TAXONOMIC_RANK_TYPES, DSL.name("CONSTRAINT_E"), new TableField[] { TaxonomicRankTypes.TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_ID }, true);
+    public static final UniqueKey<TaxonomicRankTypesRecord> CONSTRAINT_E6 = Internal.createUniqueKey(TaxonomicRankTypes.TAXONOMIC_RANK_TYPES, DSL.name("CONSTRAINT_E6"), new TableField[] { TaxonomicRankTypes.TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_NAME }, true);
+    public static final UniqueKey<TaxonomicRanksRecord> CONSTRAINT_A = Internal.createUniqueKey(TaxonomicRanks.TAXONOMIC_RANKS, DSL.name("CONSTRAINT_A"), new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_ID }, true);
+    public static final UniqueKey<TaxonomicRanksRecord> CONSTRAINT_A9 = Internal.createUniqueKey(TaxonomicRanks.TAXONOMIC_RANKS, DSL.name("CONSTRAINT_A9"), new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_NAME }, true);
+
+    // -------------------------------------------------------------------------
+    // FOREIGN KEY definitions
+    // -------------------------------------------------------------------------
+
+    public static final ForeignKey<AnimalsRecord, TaxonomicRanksRecord> FK_ANIMAL_DESCRIBED_BY_TAXONOMIC_RANK = Internal.createForeignKey(Animals.ANIMALS, DSL.name("FK_ANIMAL_DESCRIBED_BY_TAXONOMIC_RANK"), new TableField[] { Animals.ANIMALS.TAXONOMIC_RANK_ID }, Keys.CONSTRAINT_A, new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_ID }, true);
+    public static final ForeignKey<TaxonomicRanksRecord, TaxonomicRankTypesRecord> FK_TAXOMIC_RANK_HAS_TYPE = Internal.createForeignKey(TaxonomicRanks.TAXONOMIC_RANKS, DSL.name("FK_TAXOMIC_RANK_HAS_TYPE"), new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_TYPE }, Keys.CONSTRAINT_E, new TableField[] { TaxonomicRankTypes.TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_ID }, true);
+    public static final ForeignKey<TaxonomicRanksRecord, TaxonomicRanksRecord> FK_TAXOMIC_RANK_LEVEL = Internal.createForeignKey(TaxonomicRanks.TAXONOMIC_RANKS, DSL.name("FK_TAXOMIC_RANK_LEVEL"), new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_PARENT_ID }, Keys.CONSTRAINT_A, new TableField[] { TaxonomicRanks.TAXONOMIC_RANKS.TAXONOMIC_RANK_ID }, true);
 }

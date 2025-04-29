@@ -5,6 +5,8 @@
         <generate>
             <springAnnotations>true</springAnnotations>
 
+            <validationAnnotations>true</validationAnnotations>
+
             <javaTimeTypes>true</javaTimeTypes>
             <javaBeansGettersAndSetters>true</javaBeansGettersAndSetters>
 
@@ -13,7 +15,6 @@
             <pojos>true</pojos>
             <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
             <pojosToString>true</pojosToString>
-            <validationAnnotations>true</validationAnnotations>
         </generate>
         <strategy>
 

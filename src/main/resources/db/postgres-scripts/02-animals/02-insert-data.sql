@@ -1,0 +1,57 @@
+--liquibase formatted sql
+--changeset ManannikovAO:5571239425456
+--comment: insert initial data into postgres animals table
+
+INSERT INTO taxonomic_rank_types
+    (taxonomic_rank_type_id, taxonomic_rank_type_name)
+VALUES
+    (1, 'Класс'),
+    (2, 'Отряд'),
+    (3, 'Семейство'),
+    (4, 'Род');
+
+INSERT INTO taxonomic_ranks
+    (taxonomic_rank_id, taxonomic_rank_name, taxonomic_rank_type, taxonomic_rank_parent_id)
+VALUES
+    (1, 'Млекопитающие', 1, NULL),
+    (2, 'Птицы', 1, NULL),
+    (3, 'Приматы', 2, 1),
+    (4, 'Хищные', 2, 1),
+    (5, 'Хоботные', 2, 1),
+    (6, 'Дятлообразные', 2, 2),
+    (7, 'Попугаеобразные', 2, 2),
+    (8, 'Совообразные', 2, 2),
+    (9, 'Соколообразные', 2, 2),
+    (10, 'Игрунковые', 3, 3),
+    (11, 'Мартышковые', 3, 3),
+    (12, 'Енотовые', 3, 4),
+    (13, 'Кошачьи', 3, 4),
+    (14, 'Медвежьи', 3, 4),
+    (15, 'Слоновые', 3, 5),
+    (16, 'Тукановые', 3, 6),
+    (17, 'Попугаевые', 3, 7),
+    (18, 'Совиные или настоящие совы', 3, 8),
+    (19, 'Катарты', 3, 9),
+    (20, 'Ястребиные', 3, 9);
+
+ALTER TABLE taxonomic_ranks
+    ALTER COLUMN taxonomic_rank_id
+        RESTART WITH 21;
+
+-- Продолжение вставки
+INSERT INTO
+    taxonomic_ranks
+    (taxonomic_rank_name, taxonomic_rank_type, taxonomic_rank_parent_id)
+VALUES
+    ('Тамарины', 4, 10),
+    ('Колобусы', 4, 11),
+    ('Еноты', 4, 12),
+    ('Крупные кошки', 4, 13),
+    ('Большие панды', 4, 14),
+    ('Медведи', 4, 14),
+    ('Азиатские слоны', 4, 15),
+    ('Туканы', 4, 16),
+    ('Кольчатые попугаи', 4, 17),
+    ('Полярная сова', 4, 18),
+    ('Кондор', 4, 19),
+    ('Орлы', 4, 20);

@@ -175,7 +175,7 @@
 
 								<property>
 									<key>rootPath</key>
-									<value>${basedir}/src/main/resources/db/h2-scripts-xml</value>
+									<value>${basedir}/src/main/resources/db/h2-scripts</value>
 								</property>
 
 								<property>

@@ -12,7 +12,7 @@ spring:
     name: jooq-jpa
 
   liquibase:
-    change-log: 'classpath:db/changelog-main.yaml'
+    change-log: 'classpath:db/postgres-scripts/changelog-main.yaml'
 
   jpa:
     properties:

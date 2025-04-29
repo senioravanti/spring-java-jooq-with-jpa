@@ -5,7 +5,8 @@ package ru.manannikov.jooqjpa.generated;
 
 
 import ru.manannikov.jooqjpa.generated.tables.Animals;
-import ru.manannikov.jooqjpa.generated.tables.Users;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRankTypes;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRanks;
 
 
 /**
@@ -20,7 +21,12 @@ public class Tables {
     public static final Animals ANIMALS = Animals.ANIMALS;
 
     /**
-     * The table <code>USERS</code>.
+     * The table <code>TAXONOMIC_RANK_TYPES</code>.
      */
-    public static final Users USERS = Users.USERS;
+    public static final TaxonomicRankTypes TAXONOMIC_RANK_TYPES = TaxonomicRankTypes.TAXONOMIC_RANK_TYPES;
+
+    /**
+     * The table <code>TAXONOMIC_RANKS</code>.
+     */
+    public static final TaxonomicRanks TAXONOMIC_RANKS = TaxonomicRanks.TAXONOMIC_RANKS;
 }

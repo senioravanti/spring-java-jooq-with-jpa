@@ -1,6 +1,6 @@
 spring:
   liquibase:
-    change-log: 'classpath:db-test/changelog-test.yaml'
+    change-log: 'classpath:db-test/h2-scripts/changelog-test.yaml'
 
   datasource:
     url: 'dbc:h2:mem:testdb'

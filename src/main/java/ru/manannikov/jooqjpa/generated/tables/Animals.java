@@ -10,10 +10,14 @@ import java.util.List;
 
 import org.jooq.Condition;
 import org.jooq.Field;
+import org.jooq.ForeignKey;
 import org.jooq.Identity;
+import org.jooq.InverseForeignKey;
 import org.jooq.Name;
+import org.jooq.Path;
 import org.jooq.PlainSQL;
 import org.jooq.QueryPart;
+import org.jooq.Record;
 import org.jooq.SQL;
 import org.jooq.Schema;
 import org.jooq.Select;
@@ -28,6 +32,7 @@ import org.jooq.impl.TableImpl;
 
 import ru.manannikov.jooqjpa.generated.DefaultSchema;
 import ru.manannikov.jooqjpa.generated.Keys;
+import ru.manannikov.jooqjpa.generated.tables.TaxonomicRanks.TaxonomicRanksPath;
 import ru.manannikov.jooqjpa.generated.tables.records.AnimalsRecord;
 
 
@@ -68,29 +73,9 @@ public class Animals extends TableImpl<AnimalsRecord> {
     public final TableField<AnimalsRecord, String> ANIMAL_LATIN_NAME = createField(DSL.name("ANIMAL_LATIN_NAME"), SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>ANIMALS.ANIMAL_CLASS</code>.
+     * The column <code>ANIMALS.TAXONOMIC_RANK_ID</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_CLASS = createField(DSL.name("ANIMAL_CLASS"), SQLDataType.VARCHAR(24).nullable(false), this, "");
-
-    /**
-     * The column <code>ANIMALS.ANIMAL_ORDER</code>.
-     */
-    public final TableField<AnimalsRecord, String> ANIMAL_ORDER = createField(DSL.name("ANIMAL_ORDER"), SQLDataType.VARCHAR(24).nullable(false), this, "");
-
-    /**
-     * The column <code>ANIMALS.ANIMAL_FAMILY</code>.
-     */
-    public final TableField<AnimalsRecord, String> ANIMAL_FAMILY = createField(DSL.name("ANIMAL_FAMILY"), SQLDataType.VARCHAR(36).nullable(false), this, "");
-
-    /**
-     * The column <code>ANIMALS.ANIMAL_GENUS</code>.
-     */
-    public final TableField<AnimalsRecord, String> ANIMAL_GENUS = createField(DSL.name("ANIMAL_GENUS"), SQLDataType.VARCHAR(24).nullable(false), this, "");
-
-    /**
-     * The column <code>ANIMALS.ANIMAL_SPECIES</code>.
-     */
-    public final TableField<AnimalsRecord, String> ANIMAL_SPECIES = createField(DSL.name("ANIMAL_SPECIES"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<AnimalsRecord, Short> TAXONOMIC_RANK_ID = createField(DSL.name("TAXONOMIC_RANK_ID"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>ANIMALS.ANIMAL_NATURAL_HABITAT</code>.
@@ -100,7 +85,7 @@ public class Animals extends TableImpl<AnimalsRecord> {
     /**
      * The column <code>ANIMALS.ANIMAL_IMAGE_URI</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_IMAGE_URI = createField(DSL.name("ANIMAL_IMAGE_URI"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<AnimalsRecord, String> ANIMAL_IMAGE_URI = createField(DSL.name("ANIMAL_IMAGE_URI"), SQLDataType.VARCHAR(128).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.VARCHAR)), this, "");
 
     private Animals(Name alias, Table<AnimalsRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -131,6 +116,39 @@ public class Animals extends TableImpl<AnimalsRecord> {
         this(DSL.name("ANIMALS"), null);
     }
 
+    public <O extends Record> Animals(Table<O> path, ForeignKey<O, AnimalsRecord> childPath, InverseForeignKey<O, AnimalsRecord> parentPath) {
+        super(path, childPath, parentPath, ANIMALS);
+    }
+
+    /**
+     * A subtype implementing {@link Path} for simplified path-based joins.
+     */
+    public static class AnimalsPath extends Animals implements Path<AnimalsRecord> {
+
+        private static final long serialVersionUID = 1L;
+        public <O extends Record> AnimalsPath(Table<O> path, ForeignKey<O, AnimalsRecord> childPath, InverseForeignKey<O, AnimalsRecord> parentPath) {
+            super(path, childPath, parentPath);
+        }
+        private AnimalsPath(Name alias, Table<AnimalsRecord> aliased) {
+            super(alias, aliased);
+        }
+
+        @Override
+        public AnimalsPath as(String alias) {
+            return new AnimalsPath(DSL.name(alias), this);
+        }
+
+        @Override
+        public AnimalsPath as(Name alias) {
+            return new AnimalsPath(alias, this);
+        }
+
+        @Override
+        public AnimalsPath as(Table<?> alias) {
+            return new AnimalsPath(alias.getQualifiedName(), this);
+        }
+    }
+
     @Override
     public Schema getSchema() {
         return aliased() ? null : DefaultSchema.DEFAULT_SCHEMA;
@@ -143,12 +161,29 @@ public class Animals extends TableImpl<AnimalsRecord> {
 
     @Override
     public UniqueKey<AnimalsRecord> getPrimaryKey() {
-        return Keys.PK_ANIMALS;
+        return Keys.CONSTRAINT_F;
     }
 
     @Override
     public List<UniqueKey<AnimalsRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.CONSTRAINT_F, Keys.CONSTRAINT_F7);
+        return Arrays.asList(Keys.CONSTRAINT_F7, Keys.CONSTRAINT_F7B);
+    }
+
+    @Override
+    public List<ForeignKey<AnimalsRecord, ?>> getReferences() {
+        return Arrays.asList(Keys.FK_ANIMAL_DESCRIBED_BY_TAXONOMIC_RANK);
+    }
+
+    private transient TaxonomicRanksPath _taxonomicRanks;
+
+    /**
+     * Get the implicit join path to the <code>TAXONOMIC_RANKS</code> table.
+     */
+    public TaxonomicRanksPath taxonomicRanks() {
+        if (_taxonomicRanks == null)
+            _taxonomicRanks = new TaxonomicRanksPath(this, Keys.FK_ANIMAL_DESCRIBED_BY_TAXONOMIC_RANK, null);
+
+        return _taxonomicRanks;
     }
 
     @Override

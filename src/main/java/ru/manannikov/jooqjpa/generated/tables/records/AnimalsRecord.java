@@ -68,89 +68,25 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
     }
 
     /**
-     * Setter for <code>ANIMALS.ANIMAL_CLASS</code>.
+     * Setter for <code>ANIMALS.TAXONOMIC_RANK_ID</code>.
      */
-    public void setAnimalClass(String value) {
+    public void setTaxonomicRankId(Short value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>ANIMALS.ANIMAL_CLASS</code>.
+     * Getter for <code>ANIMALS.TAXONOMIC_RANK_ID</code>.
      */
     @NotNull
-    @Size(max = 24)
-    public String getAnimalClass() {
-        return (String) get(3);
-    }
-
-    /**
-     * Setter for <code>ANIMALS.ANIMAL_ORDER</code>.
-     */
-    public void setAnimalOrder(String value) {
-        set(4, value);
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_ORDER</code>.
-     */
-    @NotNull
-    @Size(max = 24)
-    public String getAnimalOrder() {
-        return (String) get(4);
-    }
-
-    /**
-     * Setter for <code>ANIMALS.ANIMAL_FAMILY</code>.
-     */
-    public void setAnimalFamily(String value) {
-        set(5, value);
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_FAMILY</code>.
-     */
-    @NotNull
-    @Size(max = 36)
-    public String getAnimalFamily() {
-        return (String) get(5);
-    }
-
-    /**
-     * Setter for <code>ANIMALS.ANIMAL_GENUS</code>.
-     */
-    public void setAnimalGenus(String value) {
-        set(6, value);
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_GENUS</code>.
-     */
-    @NotNull
-    @Size(max = 24)
-    public String getAnimalGenus() {
-        return (String) get(6);
-    }
-
-    /**
-     * Setter for <code>ANIMALS.ANIMAL_SPECIES</code>.
-     */
-    public void setAnimalSpecies(String value) {
-        set(7, value);
-    }
-
-    /**
-     * Getter for <code>ANIMALS.ANIMAL_SPECIES</code>.
-     */
-    @Size(max = 128)
-    public String getAnimalSpecies() {
-        return (String) get(7);
+    public Short getTaxonomicRankId() {
+        return (Short) get(3);
     }
 
     /**
      * Setter for <code>ANIMALS.ANIMAL_NATURAL_HABITAT</code>.
      */
     public void setAnimalNaturalHabitat(String value) {
-        set(8, value);
+        set(4, value);
     }
 
     /**
@@ -158,14 +94,14 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
      */
     @Size(max = 2048)
     public String getAnimalNaturalHabitat() {
-        return (String) get(8);
+        return (String) get(4);
     }
 
     /**
      * Setter for <code>ANIMALS.ANIMAL_IMAGE_URI</code>.
      */
     public void setAnimalImageUri(String value) {
-        set(9, value);
+        set(5, value);
     }
 
     /**
@@ -173,7 +109,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
      */
     @Size(max = 128)
     public String getAnimalImageUri() {
-        return (String) get(9);
+        return (String) get(5);
     }
 
     // -------------------------------------------------------------------------
@@ -199,17 +135,13 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
     /**
      * Create a detached, initialised AnimalsRecord
      */
-    public AnimalsRecord(Integer animalId, String animalRussianName, String animalLatinName, String animalClass, String animalOrder, String animalFamily, String animalGenus, String animalSpecies, String animalNaturalHabitat, String animalImageUri) {
+    public AnimalsRecord(Integer animalId, String animalRussianName, String animalLatinName, Short taxonomicRankId, String animalNaturalHabitat, String animalImageUri) {
         super(Animals.ANIMALS);
 
         setAnimalId(animalId);
         setAnimalRussianName(animalRussianName);
         setAnimalLatinName(animalLatinName);
-        setAnimalClass(animalClass);
-        setAnimalOrder(animalOrder);
-        setAnimalFamily(animalFamily);
-        setAnimalGenus(animalGenus);
-        setAnimalSpecies(animalSpecies);
+        setTaxonomicRankId(taxonomicRankId);
         setAnimalNaturalHabitat(animalNaturalHabitat);
         setAnimalImageUri(animalImageUri);
         resetChangedOnNotNull();
@@ -225,11 +157,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
             setAnimalId(value.getAnimalId());
             setAnimalRussianName(value.getAnimalRussianName());
             setAnimalLatinName(value.getAnimalLatinName());
-            setAnimalClass(value.getAnimalClass());
-            setAnimalOrder(value.getAnimalOrder());
-            setAnimalFamily(value.getAnimalFamily());
-            setAnimalGenus(value.getAnimalGenus());
-            setAnimalSpecies(value.getAnimalSpecies());
+            setTaxonomicRankId(value.getTaxonomicRankId());
             setAnimalNaturalHabitat(value.getAnimalNaturalHabitat());
             setAnimalImageUri(value.getAnimalImageUri());
             resetChangedOnNotNull();

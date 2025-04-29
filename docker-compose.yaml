@@ -17,7 +17,7 @@ services:
       - 'java-jooq-jpa-postgres-data:/var/lib/postgresql/data'
 
     environment:
-      POSTGRES_DB: 'jooq_jpa_db'
+      POSTGRES_DB: '${DATABASE_NAME}'
       POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
 
     ports:

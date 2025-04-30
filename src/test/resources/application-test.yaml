@@ -1,8 +1,10 @@
 spring:
   liquibase:
-    change-log: 'classpath:db-test/h2-scripts/changelog-test.yaml'
+    change-log: 'classpath:db/changelog-test.yaml'
 
   datasource:
-    url: 'dbc:h2:mem:testdb'
+    driver-class-name: 'org.h2.Driver'
+
+    url: 'jdbc:h2:mem:testdb'
     username: 'sa'
     password: ''

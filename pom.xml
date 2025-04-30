@@ -182,6 +182,8 @@
 									<value>generate-main.yaml</value>
 								</property>
 							</properties>
+							<includes>.*</includes>
+							<excludes>databasechangelog.*</excludes>
 						</database>
 					</generator>
 					<configurationFiles>

@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
 
     volumes:
-      - 'java-jooq-jpa-postgres-data:/var/lib/postgresql/data'
+      - 'java-jooq-jpa-postgres-data:/var/lib/postgresql/data/'
 
     environment:
       POSTGRES_DB: '${DATABASE_NAME}'

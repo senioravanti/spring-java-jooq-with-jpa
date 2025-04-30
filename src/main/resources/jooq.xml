@@ -16,9 +16,6 @@
             <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
             <pojosToString>true</pojosToString>
         </generate>
-        <strategy>
-
-        </strategy>
         <target>
             <packageName>ru.manannikov.jooqjpa.generated</packageName>
             <directory>src/main/java/</directory>

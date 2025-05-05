@@ -1,4 +1,4 @@
-package ru.manannikov.jooqjpa;
+package ru.manannikov.jooqjpa.daos.h2;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
@@ -21,11 +21,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Log4j2
-@ActiveProfiles("test")
+@ActiveProfiles("test-h2")
 @DataJpaTest
 @AutoConfigureJooq
 @Import(value = { TaxonomicRankDaoImpl.class, AnimalDaoImpl.class })
-class JooqJpaApplicationTests {
+class AnimalDaoH2Tests {
 
 	@Autowired
 	AnimalRepo animalRepo;

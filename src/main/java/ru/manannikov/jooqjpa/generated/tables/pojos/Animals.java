@@ -61,7 +61,7 @@ public class Animals implements Serializable {
      * Getter for <code>ANIMALS.ANIMAL_RUSSIAN_NAME</code>.
      */
     @NotNull
-    @Size(max = 32)
+    @Size(max = 1000000000)
     public String getAnimalRussianName() {
         return this.animalRussianName;
     }
@@ -70,7 +70,7 @@ public class Animals implements Serializable {
      * Getter for <code>ANIMALS.ANIMAL_LATIN_NAME</code>.
      */
     @NotNull
-    @Size(max = 64)
+    @Size(max = 1000000000)
     public String getAnimalLatinName() {
         return this.animalLatinName;
     }
@@ -86,7 +86,7 @@ public class Animals implements Serializable {
     /**
      * Getter for <code>ANIMALS.ANIMAL_NATURAL_HABITAT</code>.
      */
-    @Size(max = 2048)
+    @Size(max = 1000000000)
     public String getAnimalNaturalHabitat() {
         return this.animalNaturalHabitat;
     }
@@ -94,7 +94,7 @@ public class Animals implements Serializable {
     /**
      * Getter for <code>ANIMALS.ANIMAL_IMAGE_URI</code>.
      */
-    @Size(max = 128)
+    @Size(max = 1000000000)
     public String getAnimalImageUri() {
         return this.animalImageUri;
     }

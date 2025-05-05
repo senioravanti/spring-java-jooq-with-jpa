@@ -18,9 +18,9 @@ public class TaxonomicRanks implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final Integer taxonomicRankId;
-    private final Integer taxonomicRankParentId;
-    private final Integer taxonomicRankType;
+    private final Short taxonomicRankId;
+    private final Short taxonomicRankParentId;
+    private final Short taxonomicRankType;
     private final String taxonomicRankName;
 
     public TaxonomicRanks(TaxonomicRanks value) {
@@ -31,9 +31,9 @@ public class TaxonomicRanks implements Serializable {
     }
 
     public TaxonomicRanks(
-        Integer taxonomicRankId,
-        Integer taxonomicRankParentId,
-        Integer taxonomicRankType,
+        Short taxonomicRankId,
+        Short taxonomicRankParentId,
+        Short taxonomicRankType,
         String taxonomicRankName
     ) {
         this.taxonomicRankId = taxonomicRankId;
@@ -45,14 +45,14 @@ public class TaxonomicRanks implements Serializable {
     /**
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_ID</code>.
      */
-    public Integer getTaxonomicRankId() {
+    public Short getTaxonomicRankId() {
         return this.taxonomicRankId;
     }
 
     /**
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_PARENT_ID</code>.
      */
-    public Integer getTaxonomicRankParentId() {
+    public Short getTaxonomicRankParentId() {
         return this.taxonomicRankParentId;
     }
 
@@ -60,7 +60,7 @@ public class TaxonomicRanks implements Serializable {
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_TYPE</code>.
      */
     @NotNull
-    public Integer getTaxonomicRankType() {
+    public Short getTaxonomicRankType() {
         return this.taxonomicRankType;
     }
 
@@ -68,7 +68,7 @@ public class TaxonomicRanks implements Serializable {
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_NAME</code>.
      */
     @NotNull
-    @Size(max = 72)
+    @Size(max = 1000000000)
     public String getTaxonomicRankName() {
         return this.taxonomicRankName;
     }

@@ -24,35 +24,35 @@ public class TaxonomicRanksRecord extends UpdatableRecordImpl<TaxonomicRanksReco
     /**
      * Setter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_ID</code>.
      */
-    public void setTaxonomicRankId(Integer value) {
+    public void setTaxonomicRankId(Short value) {
         set(0, value);
     }
 
     /**
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_ID</code>.
      */
-    public Integer getTaxonomicRankId() {
-        return (Integer) get(0);
+    public Short getTaxonomicRankId() {
+        return (Short) get(0);
     }
 
     /**
      * Setter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_PARENT_ID</code>.
      */
-    public void setTaxonomicRankParentId(Integer value) {
+    public void setTaxonomicRankParentId(Short value) {
         set(1, value);
     }
 
     /**
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_PARENT_ID</code>.
      */
-    public Integer getTaxonomicRankParentId() {
-        return (Integer) get(1);
+    public Short getTaxonomicRankParentId() {
+        return (Short) get(1);
     }
 
     /**
      * Setter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_TYPE</code>.
      */
-    public void setTaxonomicRankType(Integer value) {
+    public void setTaxonomicRankType(Short value) {
         set(2, value);
     }
 
@@ -60,8 +60,8 @@ public class TaxonomicRanksRecord extends UpdatableRecordImpl<TaxonomicRanksReco
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_TYPE</code>.
      */
     @NotNull
-    public Integer getTaxonomicRankType() {
-        return (Integer) get(2);
+    public Short getTaxonomicRankType() {
+        return (Short) get(2);
     }
 
     /**
@@ -75,7 +75,7 @@ public class TaxonomicRanksRecord extends UpdatableRecordImpl<TaxonomicRanksReco
      * Getter for <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_NAME</code>.
      */
     @NotNull
-    @Size(max = 72)
+    @Size(max = 1000000000)
     public String getTaxonomicRankName() {
         return (String) get(3);
     }
@@ -85,7 +85,7 @@ public class TaxonomicRanksRecord extends UpdatableRecordImpl<TaxonomicRanksReco
     // -------------------------------------------------------------------------
 
     @Override
-    public Record1<Integer> key() {
+    public Record1<Short> key() {
         return (Record1) super.key();
     }
 
@@ -103,7 +103,7 @@ public class TaxonomicRanksRecord extends UpdatableRecordImpl<TaxonomicRanksReco
     /**
      * Create a detached, initialised TaxonomicRanksRecord
      */
-    public TaxonomicRanksRecord(Integer taxonomicRankId, Integer taxonomicRankParentId, Integer taxonomicRankType, String taxonomicRankName) {
+    public TaxonomicRanksRecord(Short taxonomicRankId, Short taxonomicRankParentId, Short taxonomicRankType, String taxonomicRankName) {
         super(TaxonomicRanks.TAXONOMIC_RANKS);
 
         setTaxonomicRankId(taxonomicRankId);

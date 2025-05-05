@@ -18,7 +18,7 @@ public class TaxonomicRankTypes implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final Integer taxonomicRankTypeId;
+    private final Short taxonomicRankTypeId;
     private final String taxonomicRankTypeName;
 
     public TaxonomicRankTypes(TaxonomicRankTypes value) {
@@ -27,7 +27,7 @@ public class TaxonomicRankTypes implements Serializable {
     }
 
     public TaxonomicRankTypes(
-        Integer taxonomicRankTypeId,
+        Short taxonomicRankTypeId,
         String taxonomicRankTypeName
     ) {
         this.taxonomicRankTypeId = taxonomicRankTypeId;
@@ -37,7 +37,7 @@ public class TaxonomicRankTypes implements Serializable {
     /**
      * Getter for <code>TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_ID</code>.
      */
-    public Integer getTaxonomicRankTypeId() {
+    public Short getTaxonomicRankTypeId() {
         return this.taxonomicRankTypeId;
     }
 
@@ -45,7 +45,7 @@ public class TaxonomicRankTypes implements Serializable {
      * Getter for <code>TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_NAME</code>.
      */
     @NotNull
-    @Size(max = 24)
+    @Size(max = 1000000000)
     public String getTaxonomicRankTypeName() {
         return this.taxonomicRankTypeName;
     }

@@ -62,22 +62,22 @@ public class TaxonomicRanks extends TableImpl<TaxonomicRanksRecord> {
     /**
      * The column <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_ID</code>.
      */
-    public final TableField<TaxonomicRanksRecord, Integer> TAXONOMIC_RANK_ID = createField(DSL.name("TAXONOMIC_RANK_ID"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<TaxonomicRanksRecord, Short> TAXONOMIC_RANK_ID = createField(DSL.name("TAXONOMIC_RANK_ID"), SQLDataType.SMALLINT.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_PARENT_ID</code>.
      */
-    public final TableField<TaxonomicRanksRecord, Integer> TAXONOMIC_RANK_PARENT_ID = createField(DSL.name("TAXONOMIC_RANK_PARENT_ID"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+    public final TableField<TaxonomicRanksRecord, Short> TAXONOMIC_RANK_PARENT_ID = createField(DSL.name("TAXONOMIC_RANK_PARENT_ID"), SQLDataType.SMALLINT.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.SMALLINT)), this, "");
 
     /**
      * The column <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_TYPE</code>.
      */
-    public final TableField<TaxonomicRanksRecord, Integer> TAXONOMIC_RANK_TYPE = createField(DSL.name("TAXONOMIC_RANK_TYPE"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<TaxonomicRanksRecord, Short> TAXONOMIC_RANK_TYPE = createField(DSL.name("TAXONOMIC_RANK_TYPE"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>TAXONOMIC_RANKS.TAXONOMIC_RANK_NAME</code>.
      */
-    public final TableField<TaxonomicRanksRecord, String> TAXONOMIC_RANK_NAME = createField(DSL.name("TAXONOMIC_RANK_NAME"), SQLDataType.VARCHAR(72).nullable(false), this, "");
+    public final TableField<TaxonomicRanksRecord, String> TAXONOMIC_RANK_NAME = createField(DSL.name("TAXONOMIC_RANK_NAME"), SQLDataType.VARCHAR(1000000000).nullable(false), this, "");
 
     private TaxonomicRanks(Name alias, Table<TaxonomicRanksRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -147,8 +147,8 @@ public class TaxonomicRanks extends TableImpl<TaxonomicRanksRecord> {
     }
 
     @Override
-    public Identity<TaxonomicRanksRecord, Integer> getIdentity() {
-        return (Identity<TaxonomicRanksRecord, Integer>) super.getIdentity();
+    public Identity<TaxonomicRanksRecord, Short> getIdentity() {
+        return (Identity<TaxonomicRanksRecord, Short>) super.getIdentity();
     }
 
     @Override

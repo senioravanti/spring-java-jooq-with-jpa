@@ -1,17 +1,17 @@
 databaseChangeLog:
   - include:
-      file: 01-taxonomic-ranks/01-create-table.sql
+      file: 01-taxonomic-ranks/01_create-table.sql
       relativeToChangelogFile: true
   - include:
-      file: 01-taxonomic-ranks/02-insert-data.sql
+      file: 01-taxonomic-ranks/02_insert-data.sql
       relativeToChangelogFile: true
 
   - include:
-      file: 02-animals/01-create-table.sql
+      file: 02-animals/01_create-table.sql
       relativeToChangelogFile: true
   - include:
-      file: 02-animals/02-insert-data.sql
+      file: 02-animals/02_insert-data.sql
       relativeToChangelogFile: true
   - include:
-      file: 02-animals/03-add-constraints.sql
+      file: 02-animals/03_full-text-search.sql
       relativeToChangelogFile: true

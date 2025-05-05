@@ -65,12 +65,12 @@ public class Animals extends TableImpl<AnimalsRecord> {
     /**
      * The column <code>ANIMALS.ANIMAL_RUSSIAN_NAME</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_RUSSIAN_NAME = createField(DSL.name("ANIMAL_RUSSIAN_NAME"), SQLDataType.VARCHAR(32).nullable(false), this, "");
+    public final TableField<AnimalsRecord, String> ANIMAL_RUSSIAN_NAME = createField(DSL.name("ANIMAL_RUSSIAN_NAME"), SQLDataType.VARCHAR(1000000000).nullable(false), this, "");
 
     /**
      * The column <code>ANIMALS.ANIMAL_LATIN_NAME</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_LATIN_NAME = createField(DSL.name("ANIMAL_LATIN_NAME"), SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<AnimalsRecord, String> ANIMAL_LATIN_NAME = createField(DSL.name("ANIMAL_LATIN_NAME"), SQLDataType.VARCHAR(1000000000).nullable(false), this, "");
 
     /**
      * The column <code>ANIMALS.TAXONOMIC_RANK_ID</code>.
@@ -80,12 +80,12 @@ public class Animals extends TableImpl<AnimalsRecord> {
     /**
      * The column <code>ANIMALS.ANIMAL_NATURAL_HABITAT</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_NATURAL_HABITAT = createField(DSL.name("ANIMAL_NATURAL_HABITAT"), SQLDataType.VARCHAR(2048), this, "");
+    public final TableField<AnimalsRecord, String> ANIMAL_NATURAL_HABITAT = createField(DSL.name("ANIMAL_NATURAL_HABITAT"), SQLDataType.VARCHAR(1000000000), this, "");
 
     /**
      * The column <code>ANIMALS.ANIMAL_IMAGE_URI</code>.
      */
-    public final TableField<AnimalsRecord, String> ANIMAL_IMAGE_URI = createField(DSL.name("ANIMAL_IMAGE_URI"), SQLDataType.VARCHAR(128).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<AnimalsRecord, String> ANIMAL_IMAGE_URI = createField(DSL.name("ANIMAL_IMAGE_URI"), SQLDataType.VARCHAR(1000000000).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.VARCHAR)), this, "");
 
     private Animals(Name alias, Table<AnimalsRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);

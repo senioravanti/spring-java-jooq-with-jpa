@@ -46,7 +46,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
      * Getter for <code>ANIMALS.ANIMAL_RUSSIAN_NAME</code>.
      */
     @NotNull
-    @Size(max = 32)
+    @Size(max = 1000000000)
     public String getAnimalRussianName() {
         return (String) get(1);
     }
@@ -62,7 +62,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
      * Getter for <code>ANIMALS.ANIMAL_LATIN_NAME</code>.
      */
     @NotNull
-    @Size(max = 64)
+    @Size(max = 1000000000)
     public String getAnimalLatinName() {
         return (String) get(2);
     }
@@ -92,7 +92,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
     /**
      * Getter for <code>ANIMALS.ANIMAL_NATURAL_HABITAT</code>.
      */
-    @Size(max = 2048)
+    @Size(max = 1000000000)
     public String getAnimalNaturalHabitat() {
         return (String) get(4);
     }
@@ -107,7 +107,7 @@ public class AnimalsRecord extends UpdatableRecordImpl<AnimalsRecord> {
     /**
      * Getter for <code>ANIMALS.ANIMAL_IMAGE_URI</code>.
      */
-    @Size(max = 128)
+    @Size(max = 1000000000)
     public String getAnimalImageUri() {
         return (String) get(5);
     }

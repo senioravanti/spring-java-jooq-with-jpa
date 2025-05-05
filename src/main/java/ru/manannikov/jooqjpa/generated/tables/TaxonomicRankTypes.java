@@ -60,12 +60,12 @@ public class TaxonomicRankTypes extends TableImpl<TaxonomicRankTypesRecord> {
     /**
      * The column <code>TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_ID</code>.
      */
-    public final TableField<TaxonomicRankTypesRecord, Integer> TAXONOMIC_RANK_TYPE_ID = createField(DSL.name("TAXONOMIC_RANK_TYPE_ID"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<TaxonomicRankTypesRecord, Short> TAXONOMIC_RANK_TYPE_ID = createField(DSL.name("TAXONOMIC_RANK_TYPE_ID"), SQLDataType.SMALLINT.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>TAXONOMIC_RANK_TYPES.TAXONOMIC_RANK_TYPE_NAME</code>.
      */
-    public final TableField<TaxonomicRankTypesRecord, String> TAXONOMIC_RANK_TYPE_NAME = createField(DSL.name("TAXONOMIC_RANK_TYPE_NAME"), SQLDataType.VARCHAR(24).nullable(false), this, "");
+    public final TableField<TaxonomicRankTypesRecord, String> TAXONOMIC_RANK_TYPE_NAME = createField(DSL.name("TAXONOMIC_RANK_TYPE_NAME"), SQLDataType.VARCHAR(1000000000).nullable(false), this, "");
 
     private TaxonomicRankTypes(Name alias, Table<TaxonomicRankTypesRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -135,8 +135,8 @@ public class TaxonomicRankTypes extends TableImpl<TaxonomicRankTypesRecord> {
     }
 
     @Override
-    public Identity<TaxonomicRankTypesRecord, Integer> getIdentity() {
-        return (Identity<TaxonomicRankTypesRecord, Integer>) super.getIdentity();
+    public Identity<TaxonomicRankTypesRecord, Short> getIdentity() {
+        return (Identity<TaxonomicRankTypesRecord, Short>) super.getIdentity();
     }
 
     @Override

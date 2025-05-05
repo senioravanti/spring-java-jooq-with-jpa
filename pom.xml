@@ -25,9 +25,12 @@
 		<tag/>
 		<url/>
 	</scm>
+
 	<properties>
 		<java.version>21</java.version>
+		<testcontainersVersion>1.21.0</testcontainersVersion>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -98,6 +101,18 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 			<version>${h2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${testcontainersVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${testcontainersVersion}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -14,7 +14,7 @@ public class JooqConfig {
     @Bean
     public DefaultConfigurationCustomizer configurationCustomizer() {
         return c -> {
-            c.setSQLDialect(SQLDialect.MARIADB);
+            c.setSQLDialect(SQLDialect.POSTGRES);
             c.settings()
                 .withRenderNameCase(RenderNameCase.AS_IS)
                 .withRenderQuotedNames(RenderQuotedNames.EXPLICIT_DEFAULT_UNQUOTED)
